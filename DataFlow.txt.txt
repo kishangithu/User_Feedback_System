@@ -1,0 +1,60 @@
+Data Flow
+
+Step | Flow
+  1. | User accesses the frontend application (React)
+  2. | User registers/login using authentication forms
+  3. | Authenticated user submits feedback via a feedback form
+  4. | Frontend sends feedback data through API (Axios/Fetch) to the backend (Node.js/Express.js)
+  5. | Backend validates the data and stores it into the MongoDB database
+  6. | Admin dashboard fetches and displays all feedback records
+  7. | Admin can manage (view/delete) feedbacks as needed
+  8. | Notifications are triggered based on action success/failure.
+
+
+folder structure (Core)
+
+User-FeedbackSystem/
+│
+├── backend/
+│   ├── config/         # Database connection config
+│   ├── controllers/    # API logic
+│   ├── models/         # Mongoose schemas
+│   ├── routes/         # API endpoints
+│   └── server.js       # Entry point for backend| 
+│
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/ # React components
+│   │   ├── pages/      # Pages like Login, Register, Dashboard
+│   │   ├── services/   # API service files
+│   │   └── App.js
+│   └── package.json
+│
+├── Data Flow.txt
+├── README.md
+└── package.json
+
+
+👤 User Functionalities
+
+No.	Functionality	        Description
+1.	User Registration	New users can create an account by providing their name, email, and password.
+2.	User Login	        Existing users can log in securely using their email and password.
+3.	Secure Authentication	After login, a token (JWT) is generated for secure session management.
+4.	Submit Feedback	        Authenticated users can fill a form to submit feedback with a Title, Description, and Rating.
+5.	View Own Feedback       Users may see a list of the feedbacks they have submitted.
+6.	Logout           	Users can securely logout, clearing their session/token from the browser.
+7.	Real-Time Notifications	Instant success or error messages are shown after feedback submission, login, or registration.
+8.	Validation Handling	Proper validation for empty fields, invalid emails, weak passwords, etc.
+
+
+🛠️ Admin Functionalities
+
+No.	Functionality	        Description
+1.	Admin Authentication	Admin users log in using secure credentials.
+2.	View All Feedbacks	Admin can see the list of all feedbacks submitted by users in a structured format.
+3.	Delete Feedback	        Admin can delete any inappropriate or invalid feedbacks from the system.
+4.	User Management 	Admin can manage users if user listing is enabled.
+5.	Real-Time Dashboard	Admin panel updates feedback list instantly after user submits.
+
